@@ -1,4 +1,7 @@
 const { injectBabelPlugin, getLoader } = require('react-app-rewired');
+const rewireAliases = require('react-app-rewire-aliases');
+const { paths } = require('react-app-rewired');
+const path = require('path');
 
 const fileLoaderMatcher = function (rule) {
   return rule.loader && rule.loader.indexOf(`file-loader`) != -1;
@@ -11,6 +14,11 @@ module.exports = function override(config, env) {
     //style: 'css',
     style: true, // use less for customized theme
   }], config);
+
+  // alias
+  config = rewireAliases.aliasesOptions({
+    '@utils': path.resolve(__dirname, `${paths.appSrc}/utils/`)
+  })(config, env);
 
   // customize theme
   config.module.rules[1].oneOf.unshift(
