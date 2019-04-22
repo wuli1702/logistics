@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { Button, Icon } from 'antd-mobile';
+import { Router, Route, IndexRoute } from 'react-router'
+import Routers from '@views/Routers/index.js';
+// import Home from '@views/Home';
 import styles from './App.css';
-// import { Request } from '@utils/request.js';
+import { Request } from '@utils/request.js';
 
 const customIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 841.9 595.3">
@@ -12,12 +15,19 @@ const customIcon = () => (
     </g>
   </svg>
 )
-// Request.get('http://pytool.sinaapp.com/geo?ip=202.114.192.168&type=json&encoding=utf-8').then(res => {
-//   console.log(res);
-// });
+Request.get('http://pytool.sinaapp.com/geo?ip=202.114.192.168&type=json&encoding=utf-8').then(res => {
+  console.log(res);
+});
 class App extends Component {
   render() {
     return (
+      // <Router>
+      //   <Route path="/" component={Routers}>
+      //     <IndexRoute component={Home} />
+      //     {/* <Route path="login" component={Login} /> */}
+      //   </Route>
+      // </Router>
+
       <div className={styles.App}>
         <div className={styles['App-header']}>
           <Icon type="success" size="lg"/>

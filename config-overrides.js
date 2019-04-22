@@ -1,5 +1,5 @@
 const { injectBabelPlugin, getLoader } = require('react-app-rewired');
-const rewireAliases = require('react-app-rewire-aliases');
+// const rewireAliases = require('react-app-rewire-aliases');
 const { paths } = require('react-app-rewired');
 const path = require('path');
 
@@ -16,9 +16,19 @@ module.exports = function override(config, env) {
   }], config);
 
   // alias
-  config = rewireAliases.aliasesOptions({
-    '@utils': path.resolve(__dirname, `${paths.appSrc}/utils/`)
-  })(config, env);
+  // config = rewireAliases.aliasesOptions({
+  //   '@utils': path.resolve(__dirname, `${paths.appSrc}/utils/`),
+  //   '@views': path.resolve(__dirname, `${paths.appSrc}/views/`),
+  //   '@components': path.resolve(__dirname, `${paths.appSrc}/components/`),
+  // })(config, env);
+  // 设置别名路径
+  config.resolve.alias = {
+    ...config.resolve.alias,
+    '@src': paths.appSrc,
+    '@utils': path.resolve(__dirname, `${paths.appSrc}/utils/`),
+    '@views': path.resolve(__dirname, `${paths.appSrc}/views/`),
+    '@components': path.resolve(__dirname, `${paths.appSrc}/components/`),
+  };
 
   // customize theme
   config.module.rules[1].oneOf.unshift(
