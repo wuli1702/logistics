@@ -20,6 +20,7 @@
     "babel-plugin-import": "^1.2.0",
     "less": "^2.7.3",
     "less-loader": "^4.0.5",
+    "react-app-rewire-decorators-legacy": "^0.1.0",
     "react-app-rewired": "^1.6.2"
   }
 }
