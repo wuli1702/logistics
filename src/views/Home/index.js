@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { observer, inject } from 'mobx-react';
 import { Button, Icon } from 'antd-mobile';
 import styles from './index.css';
 
@@ -10,9 +11,14 @@ const customIcon = () => (
       <path d="M520.5 78.1z" />
     </g>
   </svg>
-)
+);
+
+@inject('clickTimes')
+@observer
 class Home extends Component {
   render() {
+    const { clickTimes } = this.props;
+
     return (
       <div className={styles.App}>
         <div className={styles['App-header']}>
@@ -23,7 +29,8 @@ class Home extends Component {
         <p className={styles['App-intro']}>
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <Button type="primary">This is a button</Button>
+        <Button type="primary" onClick={() => {clickTimes.increase(1)}}>This is a button</Button>
+        <div>点击次数：{clickTimes.times}</div>
       </div>
     );
   }
