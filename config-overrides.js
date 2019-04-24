@@ -1,6 +1,7 @@
 const { injectBabelPlugin, getLoader } = require('react-app-rewired');
 const { paths } = require('react-app-rewired');
 const path = require('path');
+const rewireDecorators = require("react-app-rewire-decorators-legacy");
 
 const fileLoaderMatcher = function (rule) {
   return rule.loader && rule.loader.indexOf(`file-loader`) != -1;
@@ -13,6 +14,9 @@ module.exports = function override(config, env) {
     //style: 'css',
     style: true, // use less for customized theme
   }], config);
+
+  // enable ES7 decorators
+  config = rewireDecorators(config, env);
 
   // alias
   config.resolve.alias = {
