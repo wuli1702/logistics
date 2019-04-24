@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Provider } from 'mobx-react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import stores from '@stores';
 import Home from '@views/Home';
 
 class App extends Component {
   render() {
     return (
-      <Router>
-        <Route path="/" exact component={Home} />
-        {/* <Route path="login" component={Login} /> */}
-      </Router>
+      <Provider {...stores}>
+        <Router>
+          <Switch>
+            <Route path="/" exact component={Home} />
+            {/* <Route path="login" component={Login} /> */}
+          </Switch>
+        </Router>
+      </Provider>
     );
   }
 }
