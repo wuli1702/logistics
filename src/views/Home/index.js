@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 import { Button, Icon } from 'antd-mobile';
-import styles from './index.css';
+import './index.less';
 
 const customIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 841.9 595.3">
@@ -20,13 +20,13 @@ class Home extends Component {
     const { clickTimes } = this.props;
 
     return (
-      <div className={styles.App}>
-        <div className={styles['App-header']}>
+      <div className="App">
+        <div className="App-header">
           <Icon type="success" size="lg"/>
-          <div className={styles['App-logo']} style={{ width: 60, height:60 }}>{customIcon()}</div>
+          <div className="App-logo" style={{ width: 60, height:60 }}>{customIcon()}</div>
           <h2>Welcome to React</h2>
         </div>
-        <p className={styles['App-intro']}>
+        <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <Button type="primary" onClick={() => {clickTimes.increase(1)}}>This is a button</Button>
