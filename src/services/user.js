@@ -23,7 +23,7 @@ const getUserInfo = data => {
   return Promise.resolve({
     username: 'bb'
   })
-  return Request.get('/api/getuserinfo')
+  // return Request.get('/api/getuserinfo')
 }
 
 export {
