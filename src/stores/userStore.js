@@ -1,15 +1,22 @@
 import { observable, action } from 'mobx';
+import {
+  getUserInfo
+} from '@services/user.js';
 
-class ClickTimesStore {
-  @observable times;
-  @action increase = (cnt) => {
-    this.times += cnt;
+class User {
+  @observable userInfo;
+
+  @action fetchUserInfo = () => {
+    getUserInfo().then((data) => {
+      this.userInfo = data;
+    })
   }
 
   constructor() {
-    this.times = 0;
+    this.userInfo = {};
   }
 }
 
-const clickTimes = new ClickTimesStore();
-export default clickTimes;
+const user = new User();
+
+export default user;

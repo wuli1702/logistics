@@ -4,18 +4,11 @@ import { Link } from 'react-router-dom';
 import { Button } from 'antd-mobile';
 import './index.less';
 
-@inject('user')
+@inject('clickTimes')
 @observer
 class Home extends Component {
-  componentWillMount() {
-    const { user } = this.props;
-
-    user.fetchUserInfo();
-  }
-
   render() {
     // const { clickTimes } = this.props;
-    const { user } = this.props;
 
     return (
       // <div className="App">
@@ -32,7 +25,7 @@ class Home extends Component {
       // </div>
       <div className="home-container">
         <div className="home-header">
-          {user.userInfo.username ? <span>{user.userInfo.username}</span>:<Link to="/login" className="home-header-span">请登录</Link>}
+          <Link to="/login">请登录1</Link>
         </div>
         <div className="home-body"></div>
         <div className="home-footer">

@@ -1,5 +1,9 @@
-import clickTimes from './clickTimesStore.js';
+// import clickTimes from './clickTimesStore.js';
+import user from './userStore.js';
 
-const stores = { clickTimes };
+const stores = {
+  // clickTimes,
+  user
+};
 
 export default stores;

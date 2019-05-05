@@ -23,6 +23,7 @@ module.exports = function override(config, env) {
     ...config.resolve.alias,
     '@src': paths.appSrc,
     '@utils': path.resolve(__dirname, `${paths.appSrc}/utils/`),
+    '@services': path.resolve(__dirname, `${paths.appSrc}/services/`),
     '@stores': path.resolve(__dirname, `${paths.appSrc}/stores/`),
     '@views': path.resolve(__dirname, `${paths.appSrc}/views/`),
     '@components': path.resolve(__dirname, `${paths.appSrc}/components/`),
