@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 import { Link } from 'react-router-dom';
-import { Button } from 'antd-mobile';
+// import { Button } from 'antd-mobile';
 import './index.less';
 
 @inject('user')
 @observer
 class Home extends Component {
+  
   componentWillMount() {
     const { user } = this.props;
 
@@ -36,7 +37,7 @@ class Home extends Component {
         </div> : null}
         <div className="home-body"></div>
         <div className="home-footer">
-          {user.userInfo.username ? <Button className="home-footer-btn" type="primary">点餐</Button> : <Link to="/login" className="home-footer-btn">登录</Link>}
+          {user.userInfo.username ? <Link to="/order" className="home-footer-btn">点餐</Link> : <Link to="/login" className="home-footer-btn">登录</Link>}
         </div>
       </div>
     );

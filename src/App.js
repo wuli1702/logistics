@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import stores from '@stores';
 import Home from '@views/Home';
 import Login from '@views/Login';
+import Order from '@views/Order';
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
             <Route path="/" exact component={Home} />
             {/* <Route path="/home" exact component={Home} /> */}
             <Route path="/login" component={Login} />
+            <Route path="/order" component={Order} />
           </Switch>
         </Router>
       </Provider>

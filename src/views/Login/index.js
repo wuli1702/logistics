@@ -74,7 +74,9 @@ class Home extends Component {
           <Button
             type="primary"
             onClick={this.loginHandle}
-          >登录</Button>
+          >
+            登录
+          </Button>
         </div>
       </div>
     );
