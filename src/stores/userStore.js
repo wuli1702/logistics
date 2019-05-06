@@ -1,20 +1,27 @@
 import { observable, action } from 'mobx';
 import {
-  getUserInfo,
+  // 正式环境放开
+  // getUserInfo,
   login,
   logout
 } from '@services/user.js';
 
 class User {
+  constructor() {
+    this.userInfo = {};
+  }
+
   @observable userInfo;
 
   @action fetchUserInfo = () => {
-    return getUserInfo().then(data => {
-      this.userInfo = data;
-    })
+    return this.userInfo;
+    // 正式环境放开
+    // return getUserInfo().then(data => {
+    //   this.userInfo = data;
+    // })
   }
 
-  @action login = (params) => {
+  @action login = params => {
     return login(params)
   }
 
@@ -24,8 +31,8 @@ class User {
     })
   }
 
-  constructor() {
-    this.userInfo = {};
+  @action saveUserInfo = data => {
+    this.userInfo = data;
   }
 }
 

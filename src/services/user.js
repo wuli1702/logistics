@@ -12,6 +12,7 @@ const login = data => {
   return Promise.resolve({
     username: data.username
   })
+  // 正式环境放开
   // return Request.post('/api/login', {
   //   username: data.username,
   //   password: md5(data.password)
@@ -26,6 +27,7 @@ const getUserInfo = () => {
   return Promise.resolve({
     username: ''
   })
+  // 正式环境放开
   // return Request.get('/api/getuserinfo')
 }
 

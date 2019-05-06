@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
+import { Redirect } from 'react-router';
 // import { Link } from 'react-router-dom';
 import { List, InputItem, Button } from 'antd-mobile';
 import './index.less';
@@ -17,10 +18,25 @@ class Home extends Component {
     };
   }
 
+  loginHandle = () => {
+    const { user } = this.props;
+    const { username, password } = this.state;
+
+    user.login({username, password}).then(res => {
+      if (res.username) {
+        user.saveUserInfo(res);
+      }
+    })
+  }
+
   render() {
     // const { clickTimes } = this.props;
     const { user } = this.props;
     const { username, password } = this.state;
+
+    if (user.userInfo.username) {
+      return (<Redirect push to='/' />);
+    }
 
     return (
       // <div className="App">
@@ -57,9 +73,7 @@ class Home extends Component {
           </List>
           <Button
             type="primary"
-            onClick={() => {
-              user.login({username, password}).then(res => {console.log(res)})
-            }}
+            onClick={this.loginHandle}
           >登录</Button>
         </div>
       </div>
