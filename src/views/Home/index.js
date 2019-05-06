@@ -31,12 +31,12 @@ class Home extends Component {
       //   <div>点击次数：{clickTimes.times}</div>
       // </div>
       <div className="home-container">
-        <div className="home-header">
-          {user.userInfo.username ? <span>{user.userInfo.username}</span>:<Link to="/login" className="home-header-span">请登录</Link>}
-        </div>
+        {user.userInfo.username ? <div className="home-header">
+          <span className="home-header-span">{'欢迎您，'+user.userInfo.username}</span>
+        </div> : null}
         <div className="home-body"></div>
         <div className="home-footer">
-          <Button className="home-footer-btn" type="primary">点餐</Button>
+          {user.userInfo.username ? <Button className="home-footer-btn" type="primary">点餐</Button> : <Link to="/login" className="home-footer-btn">登录</Link>}
         </div>
       </div>
     );

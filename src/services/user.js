@@ -9,19 +9,22 @@ const register = data => {
 }
 
 const login = data => {
-  return Request.post('/api/login', {
-    username: data.username,
-    password: md5(data.password)
+  return Promise.resolve({
+    username: data.username
   })
+  // return Request.post('/api/login', {
+  //   username: data.username,
+  //   password: md5(data.password)
+  // })
 }
 
-const logout = data => {
+const logout = () => {
   return Request.post('/api/logout')
 }
 
-const getUserInfo = data => {
+const getUserInfo = () => {
   return Promise.resolve({
-    username: 'bb'
+    username: ''
   })
   // return Request.get('/api/getuserinfo')
 }

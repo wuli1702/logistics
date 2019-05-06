@@ -1,14 +1,26 @@
 import { observable, action } from 'mobx';
 import {
-  getUserInfo
+  getUserInfo,
+  login,
+  logout
 } from '@services/user.js';
 
 class User {
   @observable userInfo;
 
   @action fetchUserInfo = () => {
-    getUserInfo().then((data) => {
+    return getUserInfo().then(data => {
       this.userInfo = data;
+    })
+  }
+
+  @action login = (params) => {
+    return login(params)
+  }
+
+  @action logout = () => {
+    return logout().then(data => {
+      this.userInfo = {};
     })
   }
 

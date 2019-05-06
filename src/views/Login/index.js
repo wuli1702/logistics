@@ -1,14 +1,26 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
-import { Link } from 'react-router-dom';
-import { Button } from 'antd-mobile';
+// import { Link } from 'react-router-dom';
+import { List, InputItem, Button } from 'antd-mobile';
 import './index.less';
 
-@inject('clickTimes')
+@inject('user')
 @observer
 class Home extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      username: '',
+      password: ''
+    };
+  }
+
   render() {
     // const { clickTimes } = this.props;
+    const { user } = this.props;
+    const { username, password } = this.state;
 
     return (
       // <div className="App">
@@ -23,13 +35,32 @@ class Home extends Component {
       //   <Button type="primary" onClick={() => {clickTimes.increase(1)}}>This is a button</Button>
       //   <div>点击次数：{clickTimes.times}</div>
       // </div>
-      <div className="home-container">
-        <div className="home-header">
-          <Link to="/login">请登录1</Link>
-        </div>
-        <div className="home-body"></div>
-        <div className="home-footer">
-          <Button className="home-footer-btn" type="primary">点餐</Button>
+      <div className="login-container">
+        <div className="login-body">
+          <p className="login-title">请登录</p>
+          <List className="login-inputs">
+            <InputItem
+              value={username}
+              onChange={value => { this.setState({ username: value }) }}
+              clear
+            >
+              用户名
+            </InputItem>
+            <InputItem
+              value={password}
+              onChange={value => { this.setState({ password: value }) }}
+              type="password"
+              clear
+            >
+              密码
+            </InputItem>
+          </List>
+          <Button
+            type="primary"
+            onClick={() => {
+              user.login({username, password}).then(res => {console.log(res)})
+            }}
+          >登录</Button>
         </div>
       </div>
     );
