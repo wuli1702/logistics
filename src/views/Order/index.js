@@ -4,6 +4,7 @@ import { observer, inject } from 'mobx-react';
 // import { Link } from 'react-router-dom';
 // import { List, InputItem, Button } from 'antd-mobile';
 import SellerCard from '@components/SellerCard';
+import SellerGoods from '@components/SellerGoods';
 import './index.less';
 
 @inject('order')
@@ -24,14 +25,15 @@ class Home extends Component {
 
   render() {
     const { order } = this.props;
+    const { id, pic, name, remark, notice } = order.sellerInfo;
 
     return (
       <div className="order-container">
-        <SellerCard
-          data={order.sellerInfo}
-        ></SellerCard>
-        <div className="order-body">
-          菜单
+        <div className="order-sellerinfo">
+          <SellerCard data={{id, pic, name, remark, notice }}></SellerCard>
+        </div>
+        <div className="order-goods">
+          <SellerGoods data={order.sellerInfo.goods}></SellerGoods>
         </div>
       </div>
     );

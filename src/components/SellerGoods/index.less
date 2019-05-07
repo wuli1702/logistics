@@ -1,0 +1,41 @@
+.goods-wrap {
+  height: 100%;
+  width: 100%;
+  position: relative;
+
+  .goods-menu-wrap {
+    width: 0.8rem;
+    height: 100%;
+    float: left;
+    overflow: hidden;
+
+    .goods-menu {
+      .goods-munu-nav {
+        padding: 0 0.1rem;
+        height: 0.56rem;
+        background: #f3f5f7;
+        display: flex;
+        align-items: center;
+
+        .goods-munu-nav-title {
+          flex: 1;
+          font-size: 0.12rem;
+          line-height: 0.14rem;
+          text-align: center;
+        }
+
+        &.active {
+          background: #fff;
+          color: #333;
+        }
+      }
+    }
+  }
+
+  .goods-list-wrap {
+    margin-left: 0.8rem;
+    height: 100%;
+    width: 100%;
+    background-color: #ccc;
+  }
+}

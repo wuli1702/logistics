@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Carousel, WingBlank } from 'antd-mobile';
 import './index.less';
 
-class sellerCard extends Component {
+class SellerCard extends Component {
   constructor(props) {
     super(props);
 
@@ -12,12 +12,6 @@ class sellerCard extends Component {
 
   render() {
     const { data } = this.props;
-
-    // id: 1,
-    // pic: 'http://static.galileo.xiaojukeji.com/static/tms/seller_avatar_256px.jpg',
-    // name: '孟记粥铺(立水桥店)',
-    // remark: '孟记粥铺新开张，欢迎体验',
-    // notice: ['欢迎品尝新品南瓜粥', '武汉热干面超级好吃']
 
     return (
       <div className="seller-wrap">
@@ -53,4 +47,4 @@ class sellerCard extends Component {
   }
 }
 
-export default sellerCard;
+export default SellerCard;
