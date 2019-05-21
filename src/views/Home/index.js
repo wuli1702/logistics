@@ -7,7 +7,7 @@ import './index.less';
 @inject('user')
 @observer
 class Home extends Component {
-  
+
   componentWillMount() {
     const { user } = this.props;
 
@@ -35,7 +35,9 @@ class Home extends Component {
         {user.userInfo.username ? <div className="home-header">
           <span className="home-header-span">{'欢迎您，'+user.userInfo.username}</span>
         </div> : null}
-        <div className="home-body"></div>
+        <div className="home-body">
+          {/*外卖点餐系统*/}
+        </div>
         <div className="home-footer">
           {user.userInfo.username ? <Link to="/order" className="home-footer-btn">点餐</Link> : <Link to="/login" className="home-footer-btn">登录</Link>}
         </div>

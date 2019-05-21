@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import { Carousel, WingBlank } from 'antd-mobile';
-import BScroll from 'better-scroll'
+import BScroll from 'better-scroll';
 import './index.less';
 
 class SellerGoods extends Component {
@@ -13,6 +13,7 @@ class SellerGoods extends Component {
 
   componentDidMount() {
     new BScroll('.goods-menu-wrap');
+    new BScroll('.goods-list-wrap');
   }
 
   render() {
@@ -23,7 +24,7 @@ class SellerGoods extends Component {
         <div className="goods-menu-wrap">
           <div className="goods-menu">
             {data.map(item => {
-              return <div className="goods-munu-nav">
+              return <div className="goods-munu-nav" key={item.name}>
                 <span className="goods-munu-nav-title">{item.name}</span>
               </div>
             })}
@@ -43,11 +44,38 @@ class SellerGoods extends Component {
         </div>
         <div className="goods-list-wrap">
           <div className="goods-list">
-            {data.map(item => {
-              return <div className="goods-item">
-                <span className="goods-munu-nav-title">{item.name}</span>
-              </div>
-            })}
+              {data.map(item => {
+                return (
+                  <div key={item.name}>
+                  <div className="goods-munu-nav-title">
+                    <h2>{item.name}</h2>
+                  </div>
+                  <ul className="food-items">
+                    {item.foods.map(food => (
+                      <li className="food-item">
+                        <div className="icon">
+                          <img width="57" height="57" src={food.icon} alt="pic" />
+                        </div>
+                        <div className="content">
+                          <h2 className="name">{food.name}</h2>
+                          <p className="desc">{food.description}</p>
+                          <div className="extra">
+                            <span className="count">月售{food.sellCount}份</span><span>好评率{food.rating}%</span>
+                          </div>
+                          <div className="price">
+                            <span className="now">￥{food.price}</span>
+                            {food.oldPrice?<span className="old">￥{food.oldPrice}</span>:null}
+                          </div>
+                          {/*<div className="cart-control-wrapper">
+                            <cart-control @add="onAdd" :food="food"></cart-control>
+                          </div>*/}
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                  </div>
+                )
+              })}
           </div>
         </div>
       </div>

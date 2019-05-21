@@ -24,6 +24,7 @@
           text-align: center;
         }
 
+
         &.active {
           background: #fff;
           color: #333;
@@ -36,6 +37,87 @@
     margin-left: 0.8rem;
     height: 100%;
     width: 100%;
-    background-color: #ccc;
+    // background-color: #ccc;
+
+    .goods-list {
+      .goods-munu-nav-title {
+        // height: 0.8rem;
+        // border: 0.01rem red solid;
+        h2 {
+          padding-left: 0.14rem;
+          height: 0.26rem;
+          line-height: 0.26rem;
+          border-left: 0.02rem solid #d9dde1;
+          font-size: 0.12rem;
+          color: #666;
+          background: #f3f5f7;
+        }
+      }
+
+      .food-items {
+        padding: 0;
+
+        .food-item {
+          display: flex;
+          margin: 0.18rem;
+          padding-bottom: 0.18rem;
+          position: relative;
+
+          &:last-child {
+            border: none;
+            margin-bottom: 0;
+          }
+          .icon {
+            flex: 0 0 0.57rem;
+            margin-right: 0.1rem;
+            img {
+              height: auto;
+            }
+          }
+
+          .content {
+            flex: 1;
+
+            .name {
+              margin: 0.02rem 0 0.08rem 0;
+              height: 0.14rem;
+              line-height: 0.14rem;
+              font-size: 0.14rem;
+              color: #333;
+            }
+            .desc, .extra {
+              line-height: 0.1rem;
+              font-size: 0.1rem;
+              color: #999;
+            }
+            .desc {
+              line-height: 0.12rem;
+              margin-bottom: 0.08rem;
+            }
+            .extra {
+              .count {
+                margin-right: 0.12rem;
+              }
+            }
+            .price {
+              font-weight: 700;
+              line-height: 0.24rem;
+
+              .now {
+                margin-right: 0.08rem;
+                font-size: 0.14rem;
+                color: #f01414;
+              }
+              .old {
+                text-decoration: line-through;
+                font-size: 0.1rem;
+                color: #999;
+              }
+            }
+          }
+        }
+      }
+
+    }
   }
 }
