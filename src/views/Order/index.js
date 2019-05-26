@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
-// import { Redirect } from 'react-router';
-// import { Link } from 'react-router-dom';
-// import { List, InputItem, Button } from 'antd-mobile';
 import SellerCard from '@components/SellerCard';
 import SellerGoods from '@components/SellerGoods';
 import ShopCart from '@components/ShopCart';
@@ -27,7 +24,10 @@ class Home extends Component {
   }
 
   handleClick = () => {
-    if (this.props.order.selectedGoods.length || this.state.showCartList) {
+    const { order } = this.props;
+    const { selectedGoods } = order;
+
+    if (selectedGoods.length || this.state.showCartList) {
       this.setState({
         showCartList: !this.state.showCartList
       })

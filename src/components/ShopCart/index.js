@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './index.less';
 
 class ShopCart extends Component {
@@ -20,7 +21,7 @@ class ShopCart extends Component {
           <div className="shopcart-desc">送餐免费哟</div>
         </div>
         <div className="shopcart-right">
-          <div className="shopcart-submit">去结算</div>
+          <Link to="/submit" className="shopcart-submit">去结算</Link>
         </div>
       </div>
     )

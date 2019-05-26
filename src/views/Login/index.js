@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 import { Redirect } from 'react-router';
-// import { Link } from 'react-router-dom';
 import { List, InputItem, Button } from 'antd-mobile';
 import './index.less';
 

@@ -32,19 +32,6 @@ class CartList extends Component {
         handleclick();
       }
     }])
-    // this.dialogComp = this.$createDialog({
-    //   type: 'confirm',
-    //   content: '清空购物车？',
-    //   $events: {
-    //     confirm: () => {
-    //       this.selectFoods.forEach((food) => {
-    //         food.count = 0
-    //       })
-    //       this.hide()
-    //     }
-    //   }
-    // })
-    // this.dialogComp.show()
   }
 
   render() {

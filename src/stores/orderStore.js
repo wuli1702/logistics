@@ -1103,49 +1103,52 @@ class Order {
 
   @computed get selectedGoods() {
     let foods = [];
-    this.sellerInfo.goods.forEach((good) => {
-      good.foods.forEach((food) => {
-        if (food.count) {
-          foods.push(food);
-        }
+    if (this.sellerInfo.goods) {
+      this.sellerInfo.goods.forEach((good) => {
+        good.foods.forEach((food) => {
+          if (food.count) {
+            foods.push(food);
+          }
+        })
       })
-    })
-    return foods;
+      return foods;
+    } else {
+      return [];
+    }
   }
 
-  @computed get totalPrice() {
-    let total = 0;
-    this.selectedGoods.forEach((food) => {
-      total += food.price * food.count;
-    });
-    return total;
-  }
+  // @computed get totalPrice() {
+  //   let total = 0;
+  //   this.selectedGoods.forEach((food) => {
+  //     total += food.price * food.count;
+  //   });
+  //   return total;
+  // }
 
-  @computed get totalCount() {
-    let count = 0;
-    this.selectedGoods.forEach((food) => {
-      count += food.count;
-    })
-    return count;
-  }
+  // @computed get totalCount() {
+  //   let count = 0;
+  //   this.selectedGoods.forEach((food) => {
+  //     count += food.count;
+  //   })
+  //   return count;
+  // }
 
-
-  @computed get barTxts() {
-    let ret = [];
-    this.sellerInfo.goods.forEach((good) => {
-      const { type, name, foods } = good
-      let count = 0
-      foods.forEach((food) => {
-        count += food.count || 0
-      })
-      ret.push({
-        type,
-        name,
-        count
-      })
-    })
-    return ret;
-  }
+  // @computed get barTxts() {
+  //   let ret = [];
+  //   this.sellerInfo.goods.forEach((good) => {
+  //     const { type, name, foods } = good
+  //     let count = 0
+  //     foods.forEach((food) => {
+  //       count += food.count || 0
+  //     })
+  //     ret.push({
+  //       type,
+  //       name,
+  //       count
+  //     })
+  //   })
+  //   return ret;
+  // }
 
   // @action cartAdd = (food) => {
   //   // console.log(data);

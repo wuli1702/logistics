@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import { observer, inject } from 'mobx-react';
 import './index.less';
 
-@inject('order')
-@observer
 class CartControl extends Component {
   constructor(props) {
     super(props);
