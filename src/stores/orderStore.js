@@ -1110,8 +1110,41 @@ class Order {
         }
       })
     })
-    console.log(foods, 1)
     return foods;
+  }
+
+  @computed get totalPrice() {
+    let total = 0;
+    this.selectedGoods.forEach((food) => {
+      total += food.price * food.count;
+    });
+    return total;
+  }
+
+  @computed get totalCount() {
+    let count = 0;
+    this.selectedGoods.forEach((food) => {
+      count += food.count;
+    })
+    return count;
+  }
+
+
+  @computed get barTxts() {
+    let ret = [];
+    this.sellerInfo.goods.forEach((good) => {
+      const { type, name, foods } = good
+      let count = 0
+      foods.forEach((food) => {
+        count += food.count || 0
+      })
+      ret.push({
+        type,
+        name,
+        count
+      })
+    })
+    return ret;
   }
 
   // @action cartAdd = (food) => {

@@ -68,7 +68,7 @@ class SellerGoods extends Component {
                             {food.oldPrice?<span className="old">￥{food.oldPrice}</span>:null}
                           </div>
                           <div className="cart-control-wrapper">
-                            <CartControl onadd={this.onadd} food={food}></CartControl>
+                            <CartControl food={food}></CartControl>
                           </div>
                         </div>
                       </li>

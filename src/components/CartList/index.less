@@ -1,0 +1,64 @@
+.cart-list {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+
+  .list-header {
+    width: 100%;
+    height: 0.4rem;
+    line-height: 0.4rem;
+    padding: 0 0.18rem;
+    background: #f3f5f7;
+    box-sizing: border-box;
+    .title {
+      margin: 0;
+      padding: 0;
+      float: left;
+      font-size: 0.16rem;
+      color: #333;
+    }
+    .empty {
+      float: right;
+      font-size: 0.14rem;
+      color: #00a0dc;
+    }
+  }
+  .list-content {
+    padding: 0 0.18rem;
+    max-height: 2.17rem;
+    overflow: hidden;
+    background: #fff;
+
+    ul {
+      padding: 0;
+      margin: 0;
+    }
+    .food {
+      position: relative;
+      padding: 0.12rem 0;
+      box-sizing: border-box;
+      list-style: none;
+      margin: 0;
+
+      .name {
+        line-height: 0.24rem;
+        font-size: 0.16rem;
+        color: #333;
+      }
+      .price {
+        position: absolute;
+        right: 0.9rem;
+        bottom: 0.12rem;
+        line-height: 0.24rem;
+        font-weight: 700;
+        font-size: 0.16rem;
+        color: #f01414;
+      }
+      .cart-control-wrapper {
+        position: absolute;
+        right: 0;
+        bottom: 0.1rem;
+      }
+    }
+  }
+}

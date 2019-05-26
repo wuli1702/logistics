@@ -10,13 +10,13 @@ class ShopCart extends Component {
   }
 
   render() {
-    console.log(this.props.data)
-    const { data } = this.props;
+    const { totalprice, totalcount, handleclick } = this.props;
+
     return (
       <div className="shopcart-wrap">
         <div className="shopcart-left">
-          <div className="shopcart-count">{data.length}</div>
-          <div className="shopcart-total">￥{data.length}</div>
+          <div className="shopcart-count" onClick={handleclick}>{totalcount}</div>
+          <div className="shopcart-total">￥{totalprice}</div>
           <div className="shopcart-desc">送餐免费哟</div>
         </div>
         <div className="shopcart-right">

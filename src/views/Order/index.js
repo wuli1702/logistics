@@ -6,6 +6,7 @@ import { observer, inject } from 'mobx-react';
 import SellerCard from '@components/SellerCard';
 import SellerGoods from '@components/SellerGoods';
 import ShopCart from '@components/ShopCart';
+import CartList from '@components/CartList';
 import './index.less';
 
 @inject('order')
@@ -15,6 +16,7 @@ class Home extends Component {
     super(props);
 
     this.state = {
+      showCartList: false
     };
   }
 
@@ -24,9 +26,25 @@ class Home extends Component {
     order.fetchSellerInfo();
   }
 
+  handleClick = () => {
+    if (this.props.order.selectedGoods.length || this.state.showCartList) {
+      this.setState({
+        showCartList: !this.state.showCartList
+      })
+    }
+  }
+
   render() {
+    const { showCartList } = this.state;
     const { order } = this.props;
-    const { id, pic, name, remark, notice } = order.sellerInfo;
+    const { sellerInfo, selectedGoods } = order;
+    const { id, pic, name, remark, notice, goods } = sellerInfo;
+    let totalPrice = 0;
+    let totalCount = 0;
+    selectedGoods.forEach((food) => {
+      totalPrice += food.price * food.count;
+      totalCount += food.count;
+    });
 
     return (
       <div className="order-container">
@@ -34,10 +52,11 @@ class Home extends Component {
           <SellerCard data={{id, pic, name, remark, notice }}></SellerCard>
         </div>
         <div className="order-goods">
-          <SellerGoods data={order.sellerInfo.goods}></SellerGoods>
+          <SellerGoods data={goods}></SellerGoods>
         </div>
+        {showCartList ? <div className="order-cartlist"><CartList selectedgoods={selectedGoods} handleclick={this.handleClick}></CartList></div>:null}
         <div className="order-shopcart">
-          <ShopCart data={order.selectedGoods}></ShopCart>
+          <ShopCart totalprice={totalPrice} totalcount={totalCount} handleclick={this.handleClick}></ShopCart>
         </div>
       </div>
     );
