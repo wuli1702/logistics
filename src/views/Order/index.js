@@ -5,6 +5,7 @@ import { observer, inject } from 'mobx-react';
 // import { List, InputItem, Button } from 'antd-mobile';
 import SellerCard from '@components/SellerCard';
 import SellerGoods from '@components/SellerGoods';
+import ShopCart from '@components/ShopCart';
 import './index.less';
 
 @inject('order')
@@ -34,6 +35,9 @@ class Home extends Component {
         </div>
         <div className="order-goods">
           <SellerGoods data={order.sellerInfo.goods}></SellerGoods>
+        </div>
+        <div className="order-shopcart">
+          <ShopCart data={order.selectedGoods}></ShopCart>
         </div>
       </div>
     );

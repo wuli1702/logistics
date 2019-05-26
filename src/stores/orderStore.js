@@ -1,4 +1,4 @@
-import { observable, action } from 'mobx';
+import { observable, action, computed } from 'mobx';
 // import {
 //   getSellerInfo,
 // } from '@services/order.js';
@@ -1099,6 +1099,19 @@ class Order {
     // getSellerInfo().then(data => {
     //   this.sellerInfo = data;
     // })
+  }
+
+  @computed get selectedGoods() {
+    let foods = [];
+    this.sellerInfo.goods.forEach((good) => {
+      good.foods.forEach((food) => {
+        if (food.count) {
+          foods.push(food);
+        }
+      })
+    })
+    console.log(foods, 1)
+    return foods;
   }
 
   // @action cartAdd = (food) => {
