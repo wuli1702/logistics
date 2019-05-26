@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 // import { Carousel, WingBlank } from 'antd-mobile';
+import CartControl from '@components/CartControl';
 import BScroll from 'better-scroll';
 import './index.less';
 
@@ -51,8 +52,8 @@ class SellerGoods extends Component {
                     <h2>{item.name}</h2>
                   </div>
                   <ul className="food-items">
-                    {item.foods.map(food => (
-                      <li className="food-item">
+                    {item.foods.map((food, index) => (
+                      <li className="food-item" key={index}>
                         <div className="icon">
                           <img width="57" height="57" src={food.icon} alt="pic" />
                         </div>
@@ -66,9 +67,9 @@ class SellerGoods extends Component {
                             <span className="now">￥{food.price}</span>
                             {food.oldPrice?<span className="old">￥{food.oldPrice}</span>:null}
                           </div>
-                          {/*<div className="cart-control-wrapper">
-                            <cart-control @add="onAdd" :food="food"></cart-control>
-                          </div>*/}
+                          <div className="cart-control-wrapper">
+                            <CartControl onadd={this.onadd} food={food}></CartControl>
+                          </div>
                         </div>
                       </li>
                     ))}

@@ -1,17 +1,15 @@
 import { observable, action } from 'mobx';
 // import {
 //   getSellerInfo,
-//   getMenu
 // } from '@services/order.js';
 
 class Order {
   constructor() {
     this.sellerInfo = {};
-    this.menu = [];
+    // this.cart = [];
   }
 
   @observable sellerInfo;
-  @observable menu;
 
   @action fetchSellerInfo = () => {
     this.sellerInfo = {
@@ -1103,13 +1101,18 @@ class Order {
     // })
   }
 
-  @action fetchMenu = () => {
-    this.menu = [];
-    // 正式环境放开
-    // return getMenu().then(data => {
-    //   this.menu = data;
-    // })
-  }
+  // @action cartAdd = (food) => {
+  //   // console.log(data);
+  //   this.cart.farEach((item, index) => {
+  //     if (item.name == food.name) {
+  //       if (this.cart[index].count) {
+  //         this.cart[index].count ++;
+  //       } else {
+  //         this.cart[index].count = 1;
+  //       }
+  //     }
+  //   })
+  // }
 }
 
 const order = new Order();
