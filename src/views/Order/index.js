@@ -37,14 +37,14 @@ class Home extends Component {
   render() {
     const { showCartList } = this.state;
     const { order } = this.props;
-    const { sellerInfo, selectedGoods } = order;
+    const { sellerInfo, selectedGoods, totalPrice, totalCount } = order;
     const { id, pic, name, remark, notice, goods } = sellerInfo;
-    let totalPrice = 0;
-    let totalCount = 0;
-    selectedGoods.forEach((food) => {
-      totalPrice += food.price * food.count;
-      totalCount += food.count;
-    });
+    // let totalPrice = 0;
+    // let totalCount = 0;
+    // selectedGoods.forEach((food) => {
+      // totalPrice += food.price * food.count;
+      // totalCount += food.count;
+    // });
 
     return (
       <div className="order-container">
@@ -56,7 +56,7 @@ class Home extends Component {
         </div>
         {showCartList ? <div className="order-cartlist"><CartList selectedgoods={selectedGoods} handleclick={this.handleClick}></CartList></div>:null}
         <div className="order-shopcart">
-          <ShopCart totalprice={totalPrice} totalcount={totalCount} handleclick={this.handleClick}></ShopCart>
+          <ShopCart totalprice={totalPrice} totalcount={totalCount} handleclick={this.handleClick} ></ShopCart>
         </div>
       </div>
     );
