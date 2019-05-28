@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Provider } from 'mobx-react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-// import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+// import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import stores from '@stores';
 import Home from '@views/Home';
 import Login from '@views/Login';
